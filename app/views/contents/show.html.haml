@@ -7,9 +7,16 @@
       = link_to "ホームへ", root_path, class: "side-home"
   .main
     .content
-      .content-user
+      .content-title
         = @content.title
       .content-music
         = audio_tag @content.music, class: "content-music__box"
       .content-text
         = simple_format(@content.message)
+      .content-menu
+        .content-menu__good
+          いいね
+        .content-menu__comment
+          コメント
+        = link_to "編集", edit_content_path, class: "content-menu__edit"
+        = link_to "削除", "/contents/#{@content.id}", method: :delete, class: "content-menu__destroy"

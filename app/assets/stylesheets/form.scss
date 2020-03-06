@@ -4,8 +4,9 @@
   background-color: rgba(255,215,0,0.4);
   margin: 0 auto;
   padding-top: 100px;
-  h2{
+  h1{
     margin: 20px 0;
+    border-bottom: 3px solid;
     text-align: center;
   }
   &-field{
@@ -25,11 +26,11 @@
       height: 40px;
       width: 400px;
       margin: 0 auto;
-      #content_title{
+      .title-input{
         height: 40px;
         width: 100%;
       }
-      #content_message{
+      .message-input{
         height: 40px;
         width: 100%;
       }

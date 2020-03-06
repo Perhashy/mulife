@@ -9,7 +9,11 @@
     - @contents.each do |content|
       .content
         .content-user
-          = link_to content.title, content, method: :get
+          .content-user__image
+          .content-user__name
+            hashy
+        .content-title
+          = link_to content.title, content, method: :get, class: "content-title__text"
         .content-music
           = audio_tag content.music, class: "content-music__box"
         .content-text

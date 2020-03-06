@@ -14,10 +14,10 @@
       });
 
     %header.header
-      .header-icon
-        %a{href: root_path}
-          = image_tag "logo.jpg", size: "300x100"
+      %a{href: root_path}
+        = image_tag "logo.jpg", size: "300x100"
       .header-user
         = link_to "新規投稿", new_content_path, class: "header-user__upload"
-        = link_to "edit", "#", class: "header-user__edit"
+        .header-user__edit
+          = link_to "edit", "#"
     = yield

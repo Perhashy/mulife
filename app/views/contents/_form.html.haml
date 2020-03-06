@@ -1,0 +1,14 @@
+= form_with model: @content do |form|
+  .form-field
+    = form.label :タイトル
+    .form-field__title
+      = form.text_field :title, class: "title-input"
+  .form-field
+    = form.label :音源
+    = form.file_field :music
+  .form-field
+    = form.label :メッセージ
+    .form-field__title
+      = form.text_area :message, rows: "10", wrap: "hard", class: "message-input"
+  .form-action
+    = form.submit class: "form-action-submit"
