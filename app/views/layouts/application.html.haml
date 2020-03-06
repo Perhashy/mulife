@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Mulife
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    :javascript
+      audiojs.events.ready(function() {
+      var as = audiojs.createAll();
+      });
+
+    %header.header
+      .header-icon
+        %a{href: root_path}
+          = image_tag "logo.jpg", size: "300x100"
+      .header-user
+        = link_to "新規投稿", new_content_path, class: "header-user__upload"
+        = link_to "edit", "#", class: "header-user__edit"
+    = yield

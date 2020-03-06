@@ -1,0 +1,90 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header{
+  height: 100px;
+  width: 100vw;
+  background-color: #ffa500;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 30;
+  &-user{
+    height: 100px;
+    width: 260px;
+    display: flex;
+    &__upload{
+      line-height: 100px;
+    }
+    &__edit{
+      line-height: 100px;
+      margin-left: 84px;
+    }
+  }
+}
+
+.wrapper{
+  height: 100vh;
+  padding-top: 100px;
+  display: flex;
+  .side{
+    width: 300px;
+    background-color: #ff8c00;
+    padding: 20px;
+    &-form{
+      width: 260px;
+      margin-bottom: 20px;
+      display: flex;
+      &__input{
+        height: 30px;
+        width: 100%;
+        background-color: #696969;
+        border: 1px solid #808080;
+      }
+      &__submit{
+        padding: 6px 20px;
+        background-color: #808080;
+        color: #c0c0c0;
+        border-style: none;
+      }
+    }
+    &-home{
+      font-size: 20px;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      text-decoration: none;
+    }
+  }
+  .main{
+    width: calc(100vw - 300px);
+    background-color: rgba(255,215,0,0.4);
+    padding: 30px;
+    .content{
+      background-color: rgba(255,215,0,0.6);
+      padding: 20px;
+      margin-bottom: 30px;
+      border: 1px solid;
+      border-radius: 10px;
+      overflow: scroll;
+      &-user{
+        margin-bottom: 10px;
+      }
+      &-music{
+        margin-bottom: 10px;
+        .audiojs{
+          width: 100%;
+          .play-pause{
+            width: 40px;
+          }
+          .scrubber{
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
+}

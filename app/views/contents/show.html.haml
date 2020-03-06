@@ -1,0 +1,15 @@
+.wrapper
+  .side
+    .side-form
+      %input{name: "name", type: "text", class: "side-form__input"}
+      %input{type: "submit", value: "検索", class: "side-form__submit"}
+    .side-home
+      = link_to "ホームへ", root_path, class: "side-home"
+  .main
+    .content
+      .content-user
+        = @content.title
+      .content-music
+        = audio_tag @content.music, class: "content-music__box"
+      .content-text
+        = simple_format(@content.message)
