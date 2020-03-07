@@ -1,3 +1,4 @@
+= render "layouts/header"
 .wrapper
   .side
     .side-form
@@ -18,5 +19,13 @@
           いいね
         .content-menu__comment
           コメント
-        = link_to "編集", edit_content_path, class: "content-menu__edit"
-        = link_to "削除", "/contents/#{@content.id}", method: :delete, class: "content-menu__destroy"
+        - if user_signed_in?
+          - if current_user.id == @content.user_id
+            = link_to "編集", edit_content_path, class: "content-menu__edit"
+            = link_to "削除", "/contents/#{@content.id}", method: :delete, class: "content-menu__destroy"
+          - else
+            .content-menu__null
+            .content-menu__null
+        - else
+          .content-menu__null
+          .content-menu__null

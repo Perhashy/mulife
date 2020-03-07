@@ -1,6 +1,6 @@
 class ContentsController < ApplicationController
   def index
-    @contents = Content.all
+    @contents = Content.includes(:user)
   end
 
   def new
@@ -35,6 +35,6 @@ class ContentsController < ApplicationController
 
   private
   def content_params
-    params.require(:content).permit(:title, :music, :message)
+    params.require(:content).permit(:title, :music, :message).merge(user_id: current_user.id)
   end
 end

@@ -1,0 +1,13 @@
+%header.header
+  %a{href: root_path}
+    = image_tag "logo.jpg", size: "300x100"
+  - if user_signed_in?
+    .header-user
+      = link_to "新規投稿", new_content_path, class: "header-user__upload"
+      .header-user__edit
+        = link_to current_user.nickname, user_path(current_user)
+  - else
+    .header-user
+      = link_to "新規登録", new_user_registration_path, class: "header-user__upload"
+      .header-user__edit
+        = link_to "ログイン", new_user_session_path
