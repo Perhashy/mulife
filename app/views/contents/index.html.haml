@@ -10,12 +10,15 @@
     - @contents.each do |content|
       .content
         .content-user
-          .content-user__image
+          = image_tag "aikon.jpg", size: "40x40", class: "content-user__image"
           .content-user__name
             = link_to content.user.nickname, user_path(content.user_id)
+          .content-user__time
+            = content.updated_at
         .content-title
           = link_to content.title, content, method: :get, class: "content-title__text"
         .content-music
           = audio_tag content.music, class: "content-music__box"
         .content-text
           = simple_format(content.message)
+    = paginate(@contents)

@@ -8,6 +8,12 @@
       = link_to "ホームへ", root_path, class: "side-home"
   .main
     .content
+      .content-user
+        .content-user__image
+        .content-user__name
+          = link_to @content.user.nickname, user_path(@content.user_id)
+        .content-user__time
+          = @content.updated_at
       .content-title
         = @content.title
       .content-music
