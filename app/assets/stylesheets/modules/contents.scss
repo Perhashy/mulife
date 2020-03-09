@@ -101,17 +101,20 @@
           border-radius: 20px;
         }
         &__name{
-          font-size: 20px;
+          font-size: 26px;
+          color: #000;
           margin-left: 15px;
         }
         &__time{
+          color: gray;
           position: absolute;
-          right: 0;
+          right: 20px;
         }  
       }
       &-time{
+        color: gray;
         position: absolute;
-        right: 0;
+        right: 20px;
       }
       &-title{
         font-size: 40px;
@@ -121,7 +124,7 @@
         
         &__text{
           text-decoration: none;
-          font-size: 30px;
+          font-size: 40px;
           color: #000;
         }
       }
@@ -138,13 +141,14 @@
         }
       }
       &-text{
-        font-size: 25px;
+        font-size: 26px;
       }
       &-menu{
         border-top: 1px solid;
         padding: 0 50px;
         display: flex;
         justify-content: space-between;
+        position: relative;
         &__good{
           text-decoration: none;
           font-size: 20px;
@@ -165,6 +169,29 @@
           font-size: 20px;
           color: red;
         }
+        .comment-form{
+          display: flex;
+          .comment-input{
+            height: 40px;
+            width: 600px;
+            font-size: 20px;
+          }
+          .comment-submit{
+            padding: 10px 20px;
+            background-color: #808080;
+            color: #c0c0c0;
+            border-style: none;
+          }
+        }
+      }
+      .comment-list{
+        border-top: 1px solid;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      .comment{
+        margin-bottom: 5px;
+        display: flex;
       }
     }
   }

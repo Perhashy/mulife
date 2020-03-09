@@ -13,7 +13,7 @@
         .content-user__name
           = link_to @content.user.nickname, user_path(@content.user_id)
         .content-user__time
-          = @content.updated_at
+          = @content.created_at.strftime('%Y/%m/%d %H:%M')
       .content-title
         = @content.title
       .content-music
@@ -21,13 +21,29 @@
       .content-text
         = simple_format(@content.message)
       .content-menu
-        .content-menu__good
-          いいね
-        .content-menu__comment
-          コメント
         - if user_signed_in? && current_user.id == @content.user_id
+          .content-menu__good
+            いいね(2)
+          .content-menu__comment
+            コメント
           = link_to "編集", edit_content_path, class: "content-menu__edit"
           = link_to "削除", "/contents/#{@content.id}", method: :delete, class: "content-menu__destroy"
+        - elsif user_signed_in?
+          .content-menu__good
+            いいね(2)
+          = form_with(model: [@content, @comment], local: true, class: "comment-form") do |f|
+            = f.text_area :text, placeholder: "コメントする", rows: "2", class: "comment-input"
+            = f.submit "コメントする", class: "comment-submit"
         - else
-          .content-menu__null
-          .content-menu__null
+          .content-menu__nil
+          .content-menu__nil
+      .comment-list
+        コメント一覧
+      - if @comments
+        - @comments.each do |comment|
+          .comment
+            .comment-user
+              = link_to comment.user.nickname, "#"
+              ：
+            .comment-message
+              = comment.text

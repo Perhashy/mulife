@@ -18,9 +18,14 @@
       display: block;
       text-align: center;
       margin-bottom: 20px;
-      #content_music{
+    }
+    &__music{
+      height: 40px;
+      width: 400px;
+      margin: 0 auto;
+      .music-input{
+        // display: none;
       }
-
     }
     &__title{
       height: 40px;
@@ -29,8 +34,10 @@
       .title-input{
         height: 40px;
         width: 100%;
+        font-size: 18px;
       }
       .message-input{
+        font-size: 18px;
         height: 40px;
         width: 100%;
       }
@@ -41,8 +48,10 @@
     width: 200px;
     margin: 0 auto;
     &-submit{
+      font-size: 20px;
       padding: 15px 61px;
-      background-color: green;
+      background-color: tomato;
+      border-radius: 10px;
     }
   }
 }

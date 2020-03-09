@@ -19,16 +19,21 @@
       .user-box
         = image_tag "aikon.jpg", size: "100x100", class: "user-box__image"
         .user-box__name
-          = @nickname
+          = @user.nickname
+        .user-box__part
+          担当楽器：
+          = @user.part
         .user-box__message
-          自己紹介
-      .user-edit
-        = link_to "変更", "#"
+          %h4 自己紹介
+          = @user.message
+      - if current_user == @user
+        .user-edit
+          = link_to "変更", edit_user_registration_path, class: "user-edit-btn"
     %h2 投稿一覧
     - @contents.each do |content|
       .content
         .content-time
-          = content.updated_at
+          = content.created_at.strftime('%Y/%m/%d %H:%M')
         .content-title
           = link_to content.title, content, method: :get, class: "content-title__text"
         .content-music

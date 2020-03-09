@@ -11,7 +11,9 @@ body{
 
 
 .user{
-  // height: 300px;
+  border: 2px solid rgba(255,99,71,0.4);
+  margin-bottom: 20px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   &-box{
@@ -23,12 +25,29 @@ body{
       font-size: 40px;
       margin-bottom: 20px;
     }
-    &__message{
+    &__part{
       font-size: 20px;
       margin-bottom: 15px;
     }
+    &__message{
+      font-size: 20px;
+    }
   }
   &-edit{
+    height: 46px;
+    width: 78px;
     font-size: 20px;
+
+    &-btn{
+      display: block;
+      background-color: #fff;
+      font-size: 20px;
+      color: #000;
+      text-align: center;
+      line-height:46px;
+      text-decoration: none;
+      border: 1px solid;
+      border-radius: 10px;
+    }
   }
 }

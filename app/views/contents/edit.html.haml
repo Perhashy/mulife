@@ -2,3 +2,6 @@
 .form
   %h1 編集
   = render "form"
+  = form_with model: @content do |form|
+    .form-action
+      = form.submit "更新する", class: "form-action-submit"
