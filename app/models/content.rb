@@ -5,4 +5,6 @@ class Content < ApplicationRecord
   validates :music, presence: true
 
   belongs_to :user
+  has_many :comments
+
 end

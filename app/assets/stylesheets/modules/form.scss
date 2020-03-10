@@ -11,27 +11,35 @@
   }
   &-field{
     height: 100px;
-    width: 800px;
     margin-bottom: 20px;
     label{
       font-size: 30px;
       display: block;
       text-align: center;
       margin-bottom: 20px;
-      #content_music{
+    }
+    &__music{
+      height: 40px;
+      width: 400px;
+      margin: 0 auto;
+      .music-input{
+        // display: none;
       }
-
     }
     &__title{
       height: 40px;
       width: 400px;
       margin: 0 auto;
+      margin-bottom: 20px;
+
       .title-input{
         height: 40px;
         width: 100%;
+        font-size: 18px;
       }
       .message-input{
-        height: 40px;
+        font-size: 18px;
+        height: 50px;
         width: 100%;
       }
     }
@@ -41,8 +49,11 @@
     width: 200px;
     margin: 0 auto;
     &-submit{
+      margin-top: 20px;
+      font-size: 20px;
       padding: 15px 61px;
-      background-color: green;
+      background-color: tomato;
+      border-radius: 10px;
     }
   }
 }

@@ -1,7 +1,53 @@
+body{
+  background: linear-gradient(rgba(255,99,71,0.1), rgba(255,99,71,0.3));
+}
 .form{
   height: 100vh;
   width: 800px;
   background-color: rgba(255,215,0,0.4);
   margin: 0 auto;
   padding-top: 100px;
+}
+
+
+.user{
+  border: 2px solid rgba(255,99,71,0.4);
+  margin-bottom: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  &-box{
+    &__image{
+      border: 2px solid;
+      border-radius: 50px;
+    }
+    &__name{
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    &__part{
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    &__message{
+      font-size: 20px;
+    }
+  }
+  &-edit{
+    height: 46px;
+    width: 78px;
+    font-size: 20px;
+
+    &-btn{
+      display: block;
+      background-color: #fff;
+      font-size: 20px;
+      color: #000;
+      text-align: center;
+      line-height:46px;
+      text-decoration: none;
+      border: 1px solid;
+      border-radius: 10px;
+    }
+  }
 }

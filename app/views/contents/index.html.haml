@@ -1,21 +1,23 @@
 = render "layouts/header"
 .wrapper
   .side
-    .side-form
-      %input{name: "name", type: "text", class: "side-form__input"}
-      %input{type: "submit", value: "検索", class: "side-form__submit"}
+    = form_with(url: contents_searches_path, local: true, method: :get, class: "side-form") do |form|
+      = form.text_field :keyword, placeholder: "検索", class: "side-form__input"
+      = form.submit "検索", class: "side-form__submit"
     .side-home
       = link_to "ホームへ", root_path, class: "side-home"
   .main
     - @contents.each do |content|
       .content
         .content-user
-          .content-user__image
-          .content-user__name
-            = link_to content.user.nickname, user_path(content.user_id)
+          = image_tag "aikon.jpg", size: "40x40", class: "content-user__image"
+          = link_to content.user.nickname, user_path(content.user_id), class: "content-user__name"
+          .content-user__time
+            = content.created_at.strftime('%Y/%m/%d %H:%M')
         .content-title
           = link_to content.title, content, method: :get, class: "content-title__text"
         .content-music
           = audio_tag content.music, class: "content-music__box"
         .content-text
           = simple_format(content.message)
+    = paginate(@contents)

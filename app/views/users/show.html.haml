@@ -3,27 +3,39 @@
 -else
   %header.header
     %a{href: root_path}
-      = image_tag "logo.jpg", size: "300x100"
+      = image_tag "MuLife 300×100.png", size: "300x100"
       .header-user
         = link_to "新規投稿", new_content_path, class: "header-user__upload"
-        .header-user__edit
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-user__edit"
 .wrapper
   .side
-    .side-form
-      %input{name: "name", type: "text", class: "side-form__input"}
-      %input{type: "submit", value: "検索", class: "side-form__submit"}
+    = form_with(url: contents_searches_path, local: true, method: :get, class: "side-form") do |form|
+      = form.text_field :keyword, placeholder: "検索", class: "side-form__input"
+      = form.submit "検索", class: "side-form__submit"
     .side-home
       = link_to "ホームへ", root_path, class: "side-home"
   .main
-    .content-user
-      .content-user__image
-      .content-user__name
-        = @nickname
+    .user
+      .user-box
+        = image_tag "aikon.jpg", size: "100x100", class: "user-box__image"
+        .user-box__name
+          = @user.nickname
+        .user-box__part
+          担当楽器：
+          = @user.part
+        .user-box__message
+          %h4 自己紹介
+          = @user.message
+      - if current_user == @user
+        .user-edit
+          = link_to "変更", edit_user_registration_path, class: "user-edit-btn"
+    %h2 投稿一覧
     - @contents.each do |content|
       .content
+        .content-time
+          = content.created_at.strftime('%Y/%m/%d %H:%M')
         .content-title
-          = content.title
+          = link_to content.title, content, method: :get, class: "content-title__text"
         .content-music
           = audio_tag content.music, class: "content-music__box"
         .content-text
@@ -31,11 +43,10 @@
         .content-menu
           .content-menu__good
             いいね
-          .content-menu__comment
-            コメント
           - if current_user == @user
             = link_to "編集", edit_content_path(content.id), class: "content-menu__edit"
             = link_to "削除", "/contents/#{content.id}", method: :delete, class: "content-menu__destroy"
           - else
             .content-menu__null
             .content-menu__null
+    = paginate(@contents)
