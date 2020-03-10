@@ -9,9 +9,9 @@
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-user__edit"
 .wrapper
   .side
-    .side-form
-      %input{name: "name", type: "text", class: "side-form__input"}
-      %input{type: "submit", value: "検索", class: "side-form__submit"}
+    = form_with(url: contents_searches_path, local: true, method: :get, class: "side-form") do |form|
+      = form.text_field :keyword, placeholder: "検索", class: "side-form__input"
+      = form.submit "検索", class: "side-form__submit"
     .side-home
       = link_to "ホームへ", root_path, class: "side-home"
   .main
@@ -43,9 +43,6 @@
         .content-menu
           .content-menu__good
             いいね
-          .content-menu__comment
-            コメント
-            -# = @comments.content
           - if current_user == @user
             = link_to "編集", edit_content_path(content.id), class: "content-menu__edit"
             = link_to "削除", "/contents/#{content.id}", method: :delete, class: "content-menu__destroy"

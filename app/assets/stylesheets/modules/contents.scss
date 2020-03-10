@@ -3,6 +3,19 @@
   box-sizing: border-box;
 }
 
+.notifications {
+  color: #000;
+  text-align: center;
+
+  .notice {
+    background-color: #87cefa;
+  }
+
+  .alert {
+    background-color: #ff4500;
+  }
+}
+
 .header{
   height: 100px;
   width: 100vw;
@@ -85,7 +98,7 @@
     overflow: scroll;
 
     .content{
-      background-color: rgba(255,215,0,0.6);
+      background-color: rgba(255,215,0,0.5);
       padding: 20px;
       margin-bottom: 30px;
       border: 1px solid;

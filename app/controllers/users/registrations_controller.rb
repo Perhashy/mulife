@@ -62,4 +62,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
+
+  def after_update_path_for(resource)
+    flash[:notice] = '更新しました'
+    mypage_path(resource)
+  end
 end
