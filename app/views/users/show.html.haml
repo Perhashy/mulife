@@ -17,7 +17,7 @@
   .main
     .user
       .user-box
-        = image_tag "aikon.jpg", size: "100x100", class: "user-box__image"
+        = image_tag "#{@user.image}", class: "user-box__image"
         .user-box__name
           = @user.nickname
         .user-box__part

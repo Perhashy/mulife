@@ -18,6 +18,9 @@ body{
   justify-content: space-between;
   &-box{
     &__image{
+      height: 100px;
+      width: 100px;
+      object-fit: cover;
       border: 2px solid;
       border-radius: 50px;
     }
