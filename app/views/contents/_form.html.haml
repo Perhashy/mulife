@@ -11,3 +11,5 @@
     = form.label :メッセージ
     .form-field__title
       = form.text_area :message, rows: "10", wrap: "hard", class: "message-input"
+    .form-action
+      = form.submit "#{@submit}", class: "form-action-submit"

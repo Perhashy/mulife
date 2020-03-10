@@ -25,13 +25,13 @@ class ContentsController < ApplicationController
   def update
     content = Content.find(params[:id])
     content.update(content_params)
-    redirect_to content, method: :get
+    redirect_to user_path(content.user_id)
   end
 
   def destroy
     content = Content.find(params[:id])
     content.destroy
-    redirect_to root_path
+    redirect_to user_path(content.user_id)
   end
 
 

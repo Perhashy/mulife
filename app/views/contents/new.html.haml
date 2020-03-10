@@ -1,7 +1,5 @@
+- @submit = "投稿する"
 = render "layouts/header"
 .form
   %h1 新規投稿
   = render "form"
-  = form_with model: @content do |form|
-    .form-action
-      = form.submit "投稿する", class: "form-action-submit"

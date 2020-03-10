@@ -21,16 +21,12 @@
       .content-text
         = simple_format(@content.message)
       .content-menu
-        - if user_signed_in? && current_user.id == @content.user_id
+        - if user_signed_in?
           .content-menu__good
             いいね(2)
           .content-menu__comment
             コメント
-          = link_to "編集", edit_content_path, class: "content-menu__edit"
-          = link_to "削除", "/contents/#{@content.id}", method: :delete, class: "content-menu__destroy"
-        - elsif user_signed_in?
-          .content-menu__good
-            いいね(2)
+            = "(#{@comments.count})"
           = form_with(model: [@content, @comment], local: true, class: "comment-form") do |f|
             = f.text_area :text, placeholder: "コメントする", rows: "2", class: "comment-input"
             = f.submit "コメントする", class: "comment-submit"
@@ -43,7 +39,7 @@
         - @comments.each do |comment|
           .comment
             .comment-user
-              = link_to comment.user.nickname, "#"
+              = link_to comment.user.nickname, user_path(comment.user_id)
               ：
             .comment-message
               = comment.text
