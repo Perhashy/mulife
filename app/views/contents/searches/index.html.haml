@@ -7,17 +7,5 @@
     .side-home
       = link_to "ホームへ", root_path, class: "side-home"
   .main
-    - @contents.each do |content|
-      .content
-        .content-user
-          = image_tag "aikon.jpg", size: "40x40", class: "content-user__image"
-          = link_to content.user.nickname, user_path(content.user_id), class: "content-user__name"
-          .content-user__time
-            = content.created_at.strftime('%Y/%m/%d %H:%M')
-        .content-title
-          = link_to content.title, content, method: :get, class: "content-title__text"
-        .content-music
-          = audio_tag content.music, class: "content-music__box"
-        .content-text
-          = simple_format(content.message)
+    = render "contents/content"
     = paginate(@contents)

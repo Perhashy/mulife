@@ -1,4 +1,6 @@
 class ContentsController < ApplicationController
+  before_action :set_content, only: [:show, :edit, :update, :destroy]
+
   def index
     @contents = Content.includes(:user).order("created_at DESC").page(params[:page]).per(5)
   end
@@ -19,27 +21,23 @@ class ContentsController < ApplicationController
   end
 
   def show
-    @content = Content.find(params[:id])
     @comment = Comment.new
     @comments = @content.comments.includes(:user)
   end
 
   def edit
-    @content = Content.find(params[:id])
   end
 
   def update
-    content = Content.find(params[:id])
-    content.update(content_params)
+    @content.update(content_params)
     flash[:notice] = '更新しました'
-    redirect_to user_path(content.user_id)
+    redirect_to user_path(@content.user_id)
   end
 
   def destroy
-    content = Content.find(params[:id])
-    content.destroy
+    @content.destroy
     flash[:alert] = '削除しました'
-    redirect_to user_path(content.user_id)
+    redirect_to user_path(@content.user_id)
   end
 
   def search
@@ -49,5 +47,9 @@ class ContentsController < ApplicationController
   private
   def content_params
     params.require(:content).permit(:title, :music, :message).merge(user_id: current_user.id)
+  end
+
+  def set_content
+    @content = Content.find(params[:id])
   end
 end

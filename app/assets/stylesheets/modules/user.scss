@@ -37,20 +37,23 @@ body{
     }
   }
   &-edit{
-    height: 46px;
-    width: 78px;
-    font-size: 20px;
-
-    &-btn{
-      display: block;
-      background-color: #fff;
-      font-size: 20px;
-      color: #000;
-      text-align: center;
-      line-height:46px;
-      text-decoration: none;
-      border: 1px solid;
+    height: 56px;
+    width: 92px;
+    &__btn{
+      height: 56px;
+      width: 92px;
+      border: 2px solid #000;
       border-radius: 10px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: all .3s;
+      transition: all .3s;
     }
+    .user-edit:hover {
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+  }
   }
 }
