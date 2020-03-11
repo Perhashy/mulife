@@ -3,9 +3,13 @@
     = image_tag "MuLife 300×100.png", size: "300x100"
   - if user_signed_in?
     .header-user
-      = link_to "新規投稿", new_content_path, class: "header-user__upload"
-      = link_to current_user.nickname, user_path(current_user), class: "header-user__edit"
+      %a{href: new_content_path}
+        = image_tag "投稿.png", class: "header-user__upload"
+      %a{href: user_path(current_user), class: "header-user__image"}
+        = image_tag "#{current_user.image}", class: "header-user__image-btn"
   - else
     .header-user
-      = link_to "新規登録", new_user_registration_path, class: "header-user__upload"
-      = link_to "ログイン", new_user_session_path, class: "header-user__edit"
+      %a{href: new_user_registration_path}
+        = image_tag "登録.png", class: "header-user__upload"
+      %a{href: new_user_session_path, class: "header-user__edit"}
+        = image_tag "ログイン.png", class: "header-user__edit-btn"

@@ -5,19 +5,16 @@
     %a{href: root_path}
       = image_tag "MuLife 300×100.png", size: "300x100"
       .header-user
-        = link_to "新規投稿", new_content_path, class: "header-user__upload"
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-user__edit"
+        %a{href: new_content_path}
+          = image_tag "投稿.png", class: "header-user__upload"
+        %a{"data-method" => "delete", href: destroy_user_session_path, class: "header-user__edit"}
+          = image_tag "ログアウト.png", class: "header-user__edit-btn"
 .wrapper
-  .side
-    = form_with(url: contents_searches_path, local: true, method: :get, class: "side-form") do |form|
-      = form.text_field :keyword, placeholder: "検索", class: "side-form__input"
-      = form.submit "検索", class: "side-form__submit"
-    .side-home
-      = link_to "ホームへ", root_path, class: "side-home"
+  = render "layouts/side"
   .main
     .user
       .user-box
-        = image_tag "aikon.jpg", size: "100x100", class: "user-box__image"
+        = image_tag "#{@user.image}", class: "user-box__image"
         .user-box__name
           = @user.nickname
         .user-box__part
@@ -27,8 +24,8 @@
           %h4 自己紹介
           = @user.message
       - if current_user == @user
-        .user-edit
-          = link_to "変更", edit_user_registration_path, class: "user-edit-btn"
+        %a{href: edit_user_registration_path, class: "user-edit"}
+          = image_tag "変更.png",class: "user-edit__btn"
     %h2 投稿一覧
     - @contents.each do |content|
       .content

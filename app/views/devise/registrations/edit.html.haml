@@ -8,6 +8,9 @@
       .form-field__title
         = f.text_field :nickname, autofocus: true, class: "title-input"
     .form-field
+      = f.label :アイコン
+      = f.file_field :image
+    .form-field
       = f.label :担当楽器
       .form-field__title
         = f.text_field :part, autofocus: true, class: "title-input"
