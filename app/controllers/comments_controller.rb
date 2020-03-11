@@ -5,6 +5,12 @@ class CommentsController < ApplicationController
     redirect_to content_path(comment.content.id)
   end
 
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    redirect_to content_path(comment.content.id)
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:text).merge(user_id: current_user.id, content_id: params[:content_id])

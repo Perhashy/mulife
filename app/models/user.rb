@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :contents
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_contents, through: :likes, source: :content
 
   mount_uploader :image, ImageUploader
 end

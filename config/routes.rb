@@ -5,8 +5,10 @@ Rails.application.routes.draw do
     resources :searches, only: :index
   end
   resources :contents do
-    resources :comments, only: :create
+    resources :comments, only: [:create, :destroy]
   end
   resources :users, only: :show
   get "users/:id", to: "users#show", as: :mypage
+  post   '/like/:content_id' => 'likes#like',   as: 'like'
+  delete '/like/:content_id' => 'likes#unlike', as: 'unlike'
 end

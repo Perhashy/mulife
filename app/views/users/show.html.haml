@@ -40,6 +40,10 @@
         .content-menu
           .content-menu__good
             いいね
+            = "(#{content.likes.count})"
+          .content-menu__comment
+            コメント
+            = "(#{content.comments.count})"
           - if current_user == @user
             = link_to "編集", edit_content_path(content.id), class: "content-menu__edit"
             = link_to "削除", "/contents/#{content.id}", method: :delete, class: "content-menu__destroy"

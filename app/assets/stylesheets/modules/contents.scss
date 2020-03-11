@@ -196,6 +196,15 @@
           font-size: 20px;
           color: red;
         }
+        &__nil{
+          font-size: 20px;
+          color: grey;
+          margin: 0 auto;
+        }
+        &__null{
+          height: 30px;
+          width: 40px;
+        }
         .comment-form{
           display: flex;
           .comment-input{
@@ -217,8 +226,24 @@
         margin-bottom: 10px;
       }
       .comment{
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         display: flex;
+        justify-content: space-between;
+        &-user{
+          display: flex;
+          &__image{
+            height: 30px;
+            width: 30px;
+            object-fit: cover;
+            border: 1px solid #000;
+            border-radius: 50%;
+          }
+          &__name{
+            color: #000;
+            text-decoration: none;
+            margin-left: 3px;
+          }
+        }
       }
     }
   }

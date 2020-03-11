@@ -18,7 +18,7 @@
       .content-menu
         - if user_signed_in?
           .content-menu__good
-            いいね(2)
+            = render 'likes/like', content: @content
           .content-menu__comment
             コメント
             = "(#{@comments.count})"
@@ -27,14 +27,19 @@
             = f.submit "コメントする", class: "comment-submit"
         - else
           .content-menu__nil
-          .content-menu__nil
+            ※いいね、コメントをするにはログインまたはユーザー登録してください※
       .comment-list
-        コメント一覧
+        ＜コメント一覧＞
       - if @comments
         - @comments.each do |comment|
           .comment
             .comment-user
-              = link_to comment.user.nickname, user_path(comment.user_id)
-              ：
-            .comment-message
-              = comment.text
+              = image_tag "#{comment.user.image}", class: "comment-user__image"
+              .comment-user__name
+                = link_to comment.user.nickname, user_path(comment.user_id), class: "comment-user__name"
+                ：
+              .comment-user__message
+                = simple_format(comment.text)
+            - if current_user == comment.user
+              .comment-edit
+                = link_to "削除", content_comment_path(@content, comment), method: :delete
