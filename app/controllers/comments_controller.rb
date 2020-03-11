@@ -1,8 +1,11 @@
 class CommentsController < ApplicationController
 
   def create
-    comment = Comment.create(comment_params)
-    redirect_to content_path(comment.content.id)
+    @comment = Comment.create(comment_params)
+    respond_to do |format|
+      format.html { redirect_to content_path(params[:content_id])  }
+      format.json
+    end
   end
 
   def destroy

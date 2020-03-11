@@ -4,13 +4,11 @@ class LikesController < ApplicationController
   def like
     like = current_user.likes.new(content_id: @content.id)
     like.save
-    redirect_to content_path(@content.id)
   end
 
   def unlike
     like = current_user.likes.find_by(content_id: @content.id)
     like.destroy
-    redirect_to content_path(@content.id)
   end
 
   private
