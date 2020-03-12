@@ -21,12 +21,15 @@
           担当楽器：
           = @user.part
         .user-box__message
-          %h4 自己紹介
+          %h4{class: "user-box__message-text"} 自己紹介
           = @user.message
       - if current_user == @user
         %a{href: edit_user_registration_path, class: "user-edit"}
           = image_tag "変更.png",class: "user-edit__btn"
-    %h2 投稿一覧
+    .user-contents
+      = image_tag "八分音符_2.png", size: "48x48"
+      %h2{class: "user-contents__text"} 投稿一覧
+      = image_tag "八分音符_2.png", size: "48x48"
     - @contents.each do |content|
       .content
         .content-time

@@ -9,7 +9,8 @@
         = f.text_field :nickname, autofocus: true, class: "title-input"
     .form-field
       = f.label :アイコン
-      = f.file_field :image
+      .form-field-image
+        = f.file_field :image, class: "form-field-image"
     .form-field
       = f.label :担当楽器
       .form-field__title

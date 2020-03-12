@@ -24,23 +24,27 @@
   justify-content: space-between;
   position: fixed;
   z-index: 30;
+
   &-user{
     height: 50px;
     width: 250px;
     margin-top: 25px;
     margin-right: 20px;
     display: flex;
+
     &__upload{
       width: 100px;
       height: 62px;
       border: 2px solid #000;
       border-radius: 10px;
     }
+
     &__image{
       height: 62px;
       width: 62px;
       border-radius: 50%;
       margin-left: 50px;
+
       &-btn{
         height: 62px;
         width: 62px;
@@ -49,10 +53,12 @@
         border-radius: 50%;
       }
     }
+
     &__edit{
       width: 100px;
       height: 62px;
       margin-left: 50px;
+
       &-btn{
         width: 100px;
         height: 62px;
@@ -67,20 +73,24 @@
   height: 100vh;
   padding-top: 100px;
   display: flex;
+
   .side{
     width: 300px;
     background-color: #ff8c00;
     padding: 20px;
+
     &-form{
       width: 260px;
       margin-bottom: 20px;
       display: flex;
+
       &__input{
         height: 30px;
         width: 100%;
         background-color: #696969;
         border: 1px solid #808080;
       }
+
       &__submit{
         padding: 6px 20px;
         background-color: #808080;
@@ -88,6 +98,7 @@
         border-style: none;
       }
     }
+
     &-home{
       font-size: 20px;
       color: black;
@@ -97,12 +108,19 @@
       text-decoration: none;
     }
   }
+
   .main{
     width: calc(100vw - 300px);
     // background-color: rgba(255,215,0,0.4);
     background: linear-gradient(rgba(255,99,71,0.1), rgba(255,99,71,0.3));
     padding: 30px;
     overflow: scroll;
+    &-title{
+      display: flex;
+      &__text{
+        line-height: 54px;
+      }
+    }
 
     .content{
       background-color: rgba(255,215,0,0.5);
@@ -111,14 +129,17 @@
       border: 1px solid;
       border-radius: 10px;
       position: relative;
+
       &-user{
         margin-bottom: 5px;
         display: flex;
         position: relative;
+
         &__image{
           height: 50px;
           width: 50px;
           object-fit: cover;
+
           &-btn{
             height: 50px;
             width: 50px;
@@ -127,34 +148,39 @@
             border-radius: 50%;
           }
         }
+
         &__name{
           font-size: 26px;
           color: #000;
           margin-left: 15px;
         }
+
         &__time{
           color: gray;
           position: absolute;
           right: 20px;
-        }  
+        }
       }
+
       &-time{
         color: gray;
         position: absolute;
         right: 20px;
       }
+
       &-title{
         font-size: 40px;
         color: #000;
         margin-bottom: 10px;
         border-bottom: 2px solid;
-        
+
         &__text{
           text-decoration: none;
           font-size: 40px;
           color: #000;
         }
       }
+
       &-music{
         margin-bottom: 10px;
         .audiojs{
@@ -167,44 +193,53 @@
           }
         }
       }
+
       &-text{
         font-size: 26px;
       }
+
       &-menu{
         border-top: 1px solid;
         padding: 0 50px;
         display: flex;
         justify-content: space-between;
         position: relative;
+
         &__good{
           text-decoration: none;
           font-size: 20px;
           color: grey;
         }
+
         &__comment{
           text-decoration: none;
           font-size: 20px;
           color: grey;
         }
+
         &__edit{
           text-decoration: none;
           font-size: 20px;
           color: blue;
         }
+
         &__destroy{
           text-decoration: none;
           font-size: 20px;
           color: red;
         }
+
         &__nil{
           font-size: 20px;
           color: grey;
           margin: 0 auto;
         }
+
         &__null{
           height: 30px;
           width: 40px;
         }
+
         .comment-form{
           display: flex;
           .comment-input{
@@ -220,6 +255,7 @@
           }
         }
       }
+
       .comment-list{
         border-top: 1px solid;
         font-size: 20px;
@@ -229,8 +265,10 @@
         margin-bottom: 10px;
         display: flex;
         justify-content: space-between;
+
         &-user{
           display: flex;
+
           &__image{
             height: 30px;
             width: 30px;
@@ -238,10 +276,29 @@
             border: 1px solid #000;
             border-radius: 50%;
           }
+
           &__name{
+            font-size: 15px;
             color: #000;
             text-decoration: none;
             margin-left: 3px;
+          }
+
+          &__message{
+            font-size: 15px;
+          }
+        }
+
+        &-edit{
+          background-color: #d3d3d3;
+          border: 1px solid;
+          border-radius: 7px;
+          padding: 2px 4px;
+
+          &__btn{
+            font-size: 15px;
+            color: #000;
+            text-decoration: none;
           }
         }
       }

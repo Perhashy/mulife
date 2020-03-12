@@ -2,5 +2,9 @@
 .wrapper
   = render "layouts/side"
   .main
+    .main-title
+      = image_tag "八分音符_2.png", size: "54x54"
+      %h1{class: "main-title__text"} 投稿
+      = image_tag "八分音符_2.png", size: "54x54"
     = render "contents/content"
     = paginate(@contents)

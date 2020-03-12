@@ -29,11 +29,17 @@ body{
       margin-bottom: 20px;
     }
     &__part{
-      font-size: 20px;
+      font-size: 22px;
       margin-bottom: 15px;
+      border-bottom: 3px double;
+      border-left: 1px solid;
     }
     &__message{
       font-size: 20px;
+      &-text{
+        border-bottom: 3px double;
+        border-left: 1px solid;
+      }
     }
   }
   &-edit{
@@ -54,6 +60,16 @@ body{
       -webkit-transform: translateY(-5px);
       -ms-transform: translateY(-5px);
       transform: translateY(-5px);
+    }
   }
+  &-contents{
+    display: flex;
+    &__text{
+      line-height: 48px;
+    }
   }
+}
+.user-border{
+  height: 20px;
+  width: 100%;
 }
