@@ -92,7 +92,7 @@
       }
 
       &__submit{
-        padding: 6px 20px;
+        padding: 3px 20px;
         background-color: #808080;
         color: #c0c0c0;
         border-style: none;
@@ -116,14 +116,21 @@
     padding: 30px;
     overflow: scroll;
     &-title{
+      height: 54px;
       display: flex;
+      &-image{
+        height: 54px;
+        width: 54px;
+      }
       &__text{
+        font-size: 30px;
+        font-weight: bold;
         line-height: 54px;
       }
     }
 
     .content{
-      background-color: rgba(255,215,0,0.5);
+      background-color: rgba(255,215,0,0.2);
       padding: 20px;
       margin-bottom: 30px;
       border: 1px solid;
@@ -176,7 +183,7 @@
 
         &__text{
           text-decoration: none;
-          font-size: 40px;
+          font-size: 36px;
           color: #000;
         }
       }
