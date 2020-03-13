@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get "users/:id", to: "users#show", as: :mypage
   post   '/like/:content_id' => 'likes#like',   as: 'like'
   delete '/like/:content_id' => 'likes#unlike', as: 'unlike'
+  resources :likes, only: :index
 end

@@ -22,6 +22,5 @@
       = f.label :password_confirmation
       .form-field__title
         = f.password_field :password_confirmation, autocomplete: "new-password", class: "title-input"
-    .actions
-      = f.submit "Sign up"
-  = render "devise/shared/links"
+    .form-action
+      = f.submit "Sign up", class: "form-action-submit"

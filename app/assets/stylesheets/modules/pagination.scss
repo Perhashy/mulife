@@ -1,13 +1,21 @@
-.pages{
+.p-top {
+  min-width: 960px;
+  &__title {
+    text-align: center;
+    font-size: 16px;
+  }
 
-}
-.pagination{
-  font-size: 20px;
-  margin: 0 auto;
-  span>a{
-    background-color: rgba(255,99,71,0.3);
-    margin-left: 15px;
-    color: #222;
-    border: 1px solid gray;
+  &__introduce {
+    margin: 0 auto;
+    th {
+        padding: 0 15px;
+    }
+    td {
+      padding: 0 15px;
+    }
+  }
+  &__paginate {
+    text-align: center;
+    margin:0 auto;
   }
 }

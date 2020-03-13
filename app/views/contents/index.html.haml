@@ -6,6 +6,17 @@
       = image_tag "八分音符_2.png", class: "main-title-image"
       %h1{class: "main-title__text"} 投稿
       = image_tag "八分音符_2.png", class: "main-title-image"
+    %select{name: "search", onchange: "myfunc(this.value)", class: "select-text"}
+      %option{value: "A"} 選択して下さい
+      %option{value: "B"} 新着順
+      %option{value: "C"} 投稿順
+
+      :javascript
+        function myfunc(value) {
+          window.location.replace('/?option=' + value);
+        }
+
     = render "contents/content"
-    .pages
+    .p-top__paginate
       = paginate(@contents)
+  .right
