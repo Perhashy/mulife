@@ -7,4 +7,5 @@
       %h1{class: "main-title__text"} 投稿
       = image_tag "八分音符_2.png", class: "main-title-image"
     = render "contents/content"
-    = paginate(@contents)
+    .pages
+      = paginate(@contents)
