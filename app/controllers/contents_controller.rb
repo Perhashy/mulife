@@ -2,7 +2,12 @@ class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
 
   def index
-    @contents = Content.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+    if params[:option] == "A" || params[:option] == "B" || params[:option] == nil
+      @contents = Content.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+    elsif params[:option] == "C"
+      @contents = Content.includes(:user).order("created_at ASC").page(params[:page]).per(5)
+      # @contents = Content.find(Like.group(:content_id).order('count(content_id) desc').limit(3).pluck(:content_id))
+    end
   end
 
   def new
@@ -22,7 +27,7 @@ class ContentsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @content.comments.includes(:user)
+    @comments = @content.comments.includes(:user).order("created_at DESC")
   end
 
   def edit

@@ -1,11 +1,11 @@
 = render "layouts/header"
 .wrapper
-  .side
-    = form_with(url: contents_searches_path, local: true, method: :get, class: "side-form") do |form|
-      = form.text_field :keyword, placeholder: "検索", class: "side-form__input"
-      = form.submit "検索", class: "side-form__submit"
-    .side-home
-      = link_to "ホームへ", root_path, class: "side-home"
+  = render "layouts/side"
   .main
+    .main-title
+      = image_tag "八分音符_2.png", class: "main-title-image"
+      %h1{class: "main-title__text"} 投稿
+      = image_tag "八分音符_2.png", class: "main-title-image"
+
     = render "contents/content"
     = paginate(@contents)

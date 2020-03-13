@@ -2,6 +2,10 @@
 .wrapper
   = render "layouts/side"
   .main
+    .main-title
+      = image_tag "八分音符.png", size: "54x54"
+      %h1{class: "main-title__text"} 投稿の詳細
+      = image_tag "八分音符.png", size: "54x54"
     .content
       .content-user
         %a{href: user_path(@content.user_id), class: "content-user__image"}
@@ -18,23 +22,28 @@
       .content-menu
         - if user_signed_in?
           .content-menu__good
-            いいね(2)
+            = render 'likes/like', content: @content
           .content-menu__comment
             コメント
             = "(#{@comments.count})"
-          = form_with(model: [@content, @comment], local: true, class: "comment-form") do |f|
+          = form_with(model: [@content, @comment], local: true, class: "comment-form", id: "new_comment") do |f|
             = f.text_area :text, placeholder: "コメントする", rows: "2", class: "comment-input"
             = f.submit "コメントする", class: "comment-submit"
         - else
           .content-menu__nil
-          .content-menu__nil
+            ※いいね、コメントをするにはログインまたはユーザー登録してください※
       .comment-list
-        コメント一覧
+        ＜コメント一覧＞
       - if @comments
         - @comments.each do |comment|
-          .comment
+          .comment{data: {comment: {id: comment.id}}}
             .comment-user
-              = link_to comment.user.nickname, user_path(comment.user_id)
-              ：
-            .comment-message
-              = comment.text
+              = image_tag "#{comment.user.image}", class: "comment-user__image"
+              .comment-user__name
+                = link_to comment.user.nickname, user_path(comment.user_id), class: "comment-user__name"
+                ：
+              .comment-user__message
+                = simple_format(comment.text)
+            - if current_user == comment.user
+              .comment-edit
+                = link_to "削除", content_comment_path(@content, comment), method: :delete, class: "comment-edit__btn"
