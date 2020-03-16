@@ -20,7 +20,7 @@ class ContentsController < ApplicationController
       redirect_to root_path
     else
       flash.now[:alert] = '投稿に失敗しました'
-      render new_content_path
+      render :new
     end
   end
 
