@@ -1,25 +1,25 @@
 = render "layouts/header"
 .form
-  %h1 新規登録
+  %h2 新規登録
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource
     .form-field
-      = f.label :nickname
+      = f.label :名前
       .form-field__title
         = f.text_field :nickname, autofocus: true, class: "title-input"
     .form-field
-      = f.label :email
+      = f.label :メールアドレス
       .form-field__title
         = f.email_field :email, autofocus: true, autocomplete: "email", class: "title-input"
     .form-field
-      = f.label :password
+      = f.label :パスワード（半角英数６文字以上）
       - if @minimum_password_length
-        %em
-          (#{@minimum_password_length} characters minimum)
+        -# %em
+        -#   (#{@minimum_password_length} characters minimum)
       .form-field__title
         = f.password_field :password, autocomplete: "new-password", class: "title-input"
     .form-field
-      = f.label :password_confirmation
+      = f.label :パスワード（確認）
       .form-field__title
         = f.password_field :password_confirmation, autocomplete: "new-password", class: "title-input"
     .form-action

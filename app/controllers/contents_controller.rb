@@ -6,7 +6,6 @@ class ContentsController < ApplicationController
       @contents = Content.includes(:user).order("created_at DESC").page(params[:page]).per(5)
     elsif params[:option] == "C"
       @contents = Content.includes(:user).order("created_at ASC").page(params[:page]).per(5)
-      # @contents = Content.find(Like.group(:content_id).order('count(content_id) desc').limit(3).pluck(:content_id))
     end
   end
 
@@ -21,7 +20,7 @@ class ContentsController < ApplicationController
       redirect_to root_path
     else
       flash.now[:alert] = '投稿に失敗しました'
-      render root_path
+      render :new
     end
   end
 

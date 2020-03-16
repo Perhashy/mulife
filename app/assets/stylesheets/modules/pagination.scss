@@ -1,21 +1,16 @@
-.p-top {
-  min-width: 960px;
-  &__title {
-    text-align: center;
-    font-size: 16px;
+.p-top__paginate {
+  font-size: 20px;
+  text-align: center;
+  .prev{
+    margin-left: 10px;
   }
-
-  &__introduce {
-    margin: 0 auto;
-    th {
-        padding: 0 15px;
-    }
-    td {
-      padding: 0 15px;
-    }
+  .page{
+    margin-left: 10px;
   }
-  &__paginate {
-    text-align: center;
-    margin:0 auto;
+  .next{
+    margin-left: 10px;
+  }
+  .last{
+    margin-left: 10px;
   }
 }
