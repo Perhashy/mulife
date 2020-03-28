@@ -1,26 +1,18 @@
 = render "layouts/header"
 .form
-  %h2 新規登録
+  %h2.form-title 新規登録
   = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
     = render "devise/shared/error_messages", resource: resource
     .field
-      = f.label :名前
-      .field__title
-        = f.text_field :nickname, autofocus: true, class: "title-input"
+      = f.label :名前, class: "field__text"
+      = f.text_field :nickname, autofocus: true, class: "field__input"
     .field
-      = f.label :メールアドレス
-      .field__title
-        = f.email_field :email, autofocus: true, autocomplete: "email", class: "title-input"
+      = f.label :メールアドレス, class: "field__text"
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "field__input"
     .field
-      = f.label :パスワード（半角英数６文字以上）
-      - if @minimum_password_length
-        -# %em
-        -#   (#{@minimum_password_length} characters minimum)
-      .field__title
-        = f.password_field :password, autocomplete: "new-password", class: "title-input"
+      = f.label :パスワード, class: "field__text"
+      = f.password_field :password, placeholder: "#{@minimum_password_length} 文字以上の半角英数字", autocomplete: "new-password", class: "field__input"
     .field
-      = f.label :パスワード（確認）
-      .field__title
-        = f.password_field :password_confirmation, autocomplete: "new-password", class: "title-input"
-    .action
-      = f.submit "Sign up", class: "action-submit"
+      = f.label :パスワード（確認）, class: "field__text"
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: "field__input"
+    = f.submit "新規登録", class: "action"

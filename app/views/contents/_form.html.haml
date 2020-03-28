@@ -1,15 +1,11 @@
 = form_with model: @content do |f|
   .field
-    = f.label :タイトル
-    .field__title
-      = f.text_field :title, class: "title-input"
+    = f.label :タイトル, class: "field__text"
+    = f.text_field :title, class: "field__input"
   .field
-    = f.label :音源
-    .field__music
-      = f.file_field :music, class: "music-input"
+    = f.label :音源, class: "field__text"
+    = f.file_field :music, class: "field__music"
   .field
-    = f.label :メッセージ
-    .field__title
-      = f.text_area :message, rows: "10", wrap: "hard", class: "message-input"
-    .action
-      = f.submit "#{@submit}", class: "action-submit"
+    = f.label :メッセージ, class: "field__text"
+    = f.text_area :message, rows: "5", wrap: "hard", class: "field__input"
+  = f.submit "#{@submit}", class: "action"
