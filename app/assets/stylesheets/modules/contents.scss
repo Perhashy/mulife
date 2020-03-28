@@ -137,6 +137,7 @@
 
       &-menu{
         border-top: 1px solid;
+        border-bottom: 1px solid;
         padding: 0 20px;
         display: flex;
         justify-content: space-between;
@@ -177,24 +178,25 @@
           width: 40px;
         }
 
-        .comment-form{
-          display: flex;
-          .comment-input{
-            height: 40px;
-            width: 60%;
-            font-size: 20px;
-          }
-          .comment-submit{
-            padding: 5px 15px;
-            background-color: #808080;
-            color: #c0c0c0;
-            border-style: none;
-          }
+      }
+      .comment-form{
+        display: flex;
+        .comment-input{
+          height: 40px;
+          width: 60%;
+          font-size: 20px;
+        }
+        .comment-submit{
+          padding: 5px 15px;
+          background-color: #808080;
+          color: #c0c0c0;
+          border-style: none;
         }
       }
 
+
       .comment-list{
-        border-top: 1px solid;
+        // border-top: 1px solid;
         font-size: 20px;
         margin-bottom: 10px;
       }
