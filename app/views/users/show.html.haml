@@ -3,10 +3,9 @@
 -else
   %header.header
     %a{href: root_path}
-      = image_tag "MuLife 300×100.png", size: "300x100"
+      = image_tag "MuLife 300×100.png", size: "300x100", class: "header-image"
       .header-user
-        %a{href: new_content_path}
-          = image_tag "投稿.png", class: "header-user__upload"
+        = link_to image_tag("投稿.png"), new_content_path, class: "header-user__upload"
         %a{"data-method" => "delete", href: destroy_user_session_path, class: "header-user__edit"}
           = image_tag "ログアウト.png", class: "header-user__edit-btn"
 .wrapper
