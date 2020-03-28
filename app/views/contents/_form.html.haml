@@ -1,9 +1,11 @@
 = form_with model: @content do |f|
   .field
     = f.label :タイトル, class: "field__text"
+    %p.field__text-constraint 必須
     = f.text_field :title, class: "field__input"
   .field
     = f.label :音源, class: "field__text"
+    %p.field__text-constraint 必須
     = f.file_field :music, class: "field__music"
   .field
     = f.label :メッセージ, class: "field__text"
