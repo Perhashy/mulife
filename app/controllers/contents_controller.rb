@@ -19,7 +19,7 @@ class ContentsController < ApplicationController
       flash[:notice] = '投稿されました'
       redirect_to root_path
     else
-      flash.now[:alert] = '投稿に失敗しました'
+      flash[:alert] = '投稿に失敗しました'
       render :new
     end
   end
