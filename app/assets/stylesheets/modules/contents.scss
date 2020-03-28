@@ -136,9 +136,10 @@
       }
 
       &-menu{
+        padding: 3px 20px;
         border-top: 1px solid;
         border-bottom: 1px solid;
-        padding: 0 20px;
+        margin-bottom: 8px;
         display: flex;
         justify-content: space-between;
         position: relative;
@@ -183,7 +184,7 @@
         display: flex;
         .comment-input{
           height: 40px;
-          width: 60%;
+          width: 100%;
           font-size: 20px;
         }
         .comment-submit{
