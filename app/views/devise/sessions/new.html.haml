@@ -2,17 +2,17 @@
 .form
   %h2 ログイン
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .form-field
+    .field
       = f.label :メールアドレス
-      .form-field__title
+      .field__title
         = f.email_field :email, autofocus: true, autocomplete: "email", class: "title-input"
-    .form-field
+    .field
       = f.label :パスワード
-      .form-field__title
+      .field__title
         = f.password_field :password, autocomplete: "current-password", class: "title-input"
     - if devise_mapping.rememberable?
-      .form-remember
+      .remember
         = f.check_box :remember_me
         = f.label :ログイン状態を保存する
-    .form-action
-      = f.submit "ログイン", class: "form-action-submit"
+    .action
+      = f.submit "ログイン", class: "action-submit"

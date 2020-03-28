@@ -1,15 +1,15 @@
-= form_with model: @content do |form|
-  .form-field
-    = form.label :タイトル
-    .form-field__title
-      = form.text_field :title, class: "title-input"
-  .form-field
-    = form.label :音源
-    .form-field__music
-      = form.file_field :music, class: "music-input"
-  .form-field
-    = form.label :メッセージ
-    .form-field__title
-      = form.text_area :message, rows: "10", wrap: "hard", class: "message-input"
-    .form-action
-      = form.submit "#{@submit}", class: "form-action-submit"
+= form_with model: @content do |f|
+  .field
+    = f.label :タイトル
+    .field__title
+      = f.text_field :title, class: "title-input"
+  .field
+    = f.label :音源
+    .field__music
+      = f.file_field :music, class: "music-input"
+  .field
+    = f.label :メッセージ
+    .field__title
+      = f.text_area :message, rows: "10", wrap: "hard", class: "message-input"
+    .action
+      = f.submit "#{@submit}", class: "action-submit"
