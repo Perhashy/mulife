@@ -3,24 +3,28 @@
   font-size: 20px;
   text-align: center;
   padding: 18px;
+  border-bottom: 1px solid;
   .pagination{
     display: flex;
-    .prev{
+    justify-content: center;
+    margin: 0 auto;
+    span{
       display: block;
+      background-color: #fff;
+      padding: 0 8px;
+      border: 1px solid;
+      border-radius: 5px;
       margin-left: 10px;
+      cursor: pointer;
+      a{
+        color: #000;
+      }
     }
-    .page{
-      display: block;
-      width: 40px;
-      margin-left: 10px;
+    .current:hover{
+      background-color: #fff;
     }
-    .next{
-      display: block;
-      margin-left: 10px;
-    }
-    .last{
-      display: block;
-      margin-left: 10px;
+    span:hover{
+      background-color: tomato;
     }
   }
 }
