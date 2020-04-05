@@ -1,27 +1,27 @@
 = render "layouts/header"
 .form
-  %h2 変更
+  %h2.form-title 変更
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
     = render "devise/shared/error_messages", resource: resource
     .form-field
-      = f.label :名前
+      = f.label :名前, class: "field__text"
       .form-field__title
-        = f.text_field :nickname, autofocus: true, class: "title-input"
+        = f.text_field :nickname, autofocus: true, class: "field__input"
     .form-field
-      = f.label :アイコン
+      = f.label :アイコン, class: "field__text"
       .form-field-image
         = f.file_field :image, class: "form-field-image"
     .form-field
-      = f.label :担当楽器
+      = f.label :担当楽器, class: "field__text"
       .form-field__title
-        = f.text_field :part, autofocus: true, class: "title-input"
+        = f.text_field :part, autofocus: true, class: "field__input"
     .form-field
-      = f.label :自己紹介
+      = f.label :自己紹介, class: "field__text"
       .form-field__title
-        = f.text_area :message, rows: "10", wrap: "hard", class: "message-input"
+        = f.text_area :message, rows: "10", wrap: "hard", class: "field__input"
 
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       %div
         Currently waiting confirmation for: #{resource.unconfirmed_email}
     .form-action
-      = f.submit "変更する", class: "form-action-submit"
+      = f.submit "変更する", class: "action"
