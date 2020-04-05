@@ -14,7 +14,7 @@ class ContentsController < ApplicationController
   end
 
   def create
-    @content = Content.create(content_params)
+    @content = Content.new(content_params)
     if @content.save
       flash[:notice] = '投稿されました'
       redirect_to root_path
@@ -33,9 +33,12 @@ class ContentsController < ApplicationController
   end
 
   def update
-    @content.update(content_params)
-    flash[:notice] = '更新しました'
-    redirect_to user_path(@content.user_id)
+    if @content.update(content_params)
+      flash[:notice] = '更新しました'
+      redirect_to user_path(@content.user_id)
+    else
+      render :edit
+    end
   end
 
   def destroy
