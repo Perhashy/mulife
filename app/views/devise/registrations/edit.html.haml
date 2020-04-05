@@ -5,6 +5,7 @@
     = render "devise/shared/error_messages", resource: resource
     .form-field
       = f.label :名前, class: "field__text"
+      %p.field__text-constraint 必須
       .form-field__title
         = f.text_field :nickname, autofocus: true, class: "field__input"
     .form-field
