@@ -4,12 +4,13 @@
   .main
     .main-title
       = image_tag "八分音符_2.png", class: "main-title-image"
-      %h1{class: "main-title__text"} 投稿
+      %h1{class: "main-title__text"} 投稿一覧
       = image_tag "八分音符_2.png", class: "main-title-image"
-    %select{name: "search", onchange: "myfunc(this.value)", class: "select-text"}
-      %option{value: "A"} 選択して下さい
-      %option{value: "B"} 新着順
-      %option{value: "C"} 投稿順
+    .main-select
+      %select{name: "search", onchange: "myfunc(this.value)", class: "select-text"}
+        %option{value: "A"} 選択して下さい
+        %option{value: "B"} 新着順
+        %option{value: "C"} 投稿順
 
       :javascript
         function myfunc(value) {
@@ -19,4 +20,3 @@
     = render "contents/content"
     .p-top__paginate
       = paginate(@contents)
-  .right

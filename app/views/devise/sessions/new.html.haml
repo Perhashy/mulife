@@ -1,18 +1,16 @@
 = render "layouts/header"
 .form
-  %h2 ログイン
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .form-field
-      = f.label :メールアドレス
-      .form-field__title
-        = f.email_field :email, autofocus: true, autocomplete: "email", class: "title-input"
-    .form-field
-      = f.label :パスワード
-      .form-field__title
-        = f.password_field :password, autocomplete: "current-password", class: "title-input"
+  %h2.form-title ログイン
+  = form_with model: @user, url: session_path(resource_name), local: true do |f|
+    .field
+      = f.label :メールアドレス, class: "field__text"
+      = f.email_field :email, autofocus: true, placeholder: "メールアドレス", autocomplete: "email", class: "field__input"
+    .field
+      = f.label :パスワード, class: "field__text"
+      = f.password_field :password, placeholder:"パスワード", autocomplete: "current-password", class: "field__input"
     - if devise_mapping.rememberable?
-      .form-remember
+      .remember
         = f.check_box :remember_me
         = f.label :ログイン状態を保存する
-    .form-action
-      = f.submit "ログイン", class: "form-action-submit"
+      = f.submit "ログイン", class: "action"
+

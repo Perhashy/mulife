@@ -1,16 +1,32 @@
 .p-top__paginate {
+  background-color: rgba(255,99,71,0.4);
   font-size: 20px;
   text-align: center;
-  .prev{
-    margin-left: 10px;
-  }
-  .page{
-    margin-left: 10px;
-  }
-  .next{
-    margin-left: 10px;
-  }
-  .last{
-    margin-left: 10px;
+  padding: 18px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: rgba(255,99,71,0.7);
+  .pagination{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    span{
+      display: block;
+      background-color: #fff;
+      padding: 0 8px;
+      border: 1px solid;
+      border-radius: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+      a{
+        color: #000;
+      }
+    }
+    .current:hover{
+      background-color: #fff;
+    }
+    span:hover{
+      background-color: tomato;
+    }
   }
 }

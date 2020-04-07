@@ -1,15 +1,17 @@
-= form_with model: @content do |form|
-  .form-field
-    = form.label :タイトル
-    .form-field__title
-      = form.text_field :title, class: "title-input"
-  .form-field
-    = form.label :音源
-    .form-field__music
-      = form.file_field :music, class: "music-input"
-  .form-field
-    = form.label :メッセージ
-    .form-field__title
-      = form.text_area :message, rows: "10", wrap: "hard", class: "message-input"
-    .form-action
-      = form.submit "#{@submit}", class: "form-action-submit"
+= form_with model: @content do |f|
+  .field
+    = f.label :タイトル, class: "field__text"
+    %p.field__text-constraint 必須
+    = f.text_field :title, placeholder:"タイトル", class: "field__input"
+    = render partial: '/errors/content-error-messages', locals: {content: @content, column: "title"}
+
+  .field
+    = f.label :音源, class: "field__text"
+    %p.field__text-constraint 必須
+    = f.file_field :music, class: "field__music"
+    = render partial: '/errors/content-error-messages', locals: {content: @content, column: "music"}
+
+  .field
+    = f.label :メッセージ, class: "field__text"
+    = f.text_area :message, rows: "5", wrap: "hard", placeholder:"メッセージ", class: "field__input"
+  = f.submit "#{@submit}", class: "action"

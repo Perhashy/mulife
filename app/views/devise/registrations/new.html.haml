@@ -1,26 +1,29 @@
 = render "layouts/header"
 .form
-  %h2 新規登録
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = render "devise/shared/error_messages", resource: resource
-    .form-field
-      = f.label :名前
-      .form-field__title
-        = f.text_field :nickname, autofocus: true, class: "title-input"
-    .form-field
-      = f.label :メールアドレス
-      .form-field__title
-        = f.email_field :email, autofocus: true, autocomplete: "email", class: "title-input"
-    .form-field
-      = f.label :パスワード（半角英数６文字以上）
-      - if @minimum_password_length
-        -# %em
-        -#   (#{@minimum_password_length} characters minimum)
-      .form-field__title
-        = f.password_field :password, autocomplete: "new-password", class: "title-input"
-    .form-field
-      = f.label :パスワード（確認）
-      .form-field__title
-        = f.password_field :password_confirmation, autocomplete: "new-password", class: "title-input"
-    .form-action
-      = f.submit "Sign up", class: "form-action-submit"
+  %h2.form-title 新規登録
+  = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+    .field
+      = f.label :ニックネーム, class: "field__text"
+      %p.field__text-constraint 必須
+      = f.text_field :nickname, autofocus: true, placeholder: "ニックネーム", class: "field__input"
+      = render partial: '/errors/error-messages', locals: {user: @user, column: "nickname"}
+
+    .field
+      = f.label :メールアドレス, class: "field__text"
+      %p.field__text-constraint 必須
+      = f.email_field :email, autofocus: true, placeholder: "PC・携帯どちらでも可", autocomplete: "email", class: "field__input"
+      = render partial: '/errors/error-messages', locals: {user: @user, column: "email"}
+
+    .field
+      = f.label :パスワード, class: "field__text"
+      %p.field__text-constraint 必須
+      = f.password_field :password, autofocus: true, placeholder: "#{@minimum_password_length} 文字以上の半角英数字", autocomplete: "new-password", class: "field__input"
+      = render partial: '/errors/error-messages', locals: {user: @user, column: "password"}
+
+    .field
+      = f.label :パスワード（確認）, class: "field__text"
+      %p.field__text-constraint 必須
+      = f.password_field :password_confirmation, autofocus: true, placeholder: "パスワード", autocomplete: "new-password", class: "field__input"
+      = render partial: '/errors/error-messages', locals: {user: @user, column: "password_confirmation"}
+
+    = f.submit "新規登録", class: "action"

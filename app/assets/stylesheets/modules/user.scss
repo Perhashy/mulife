@@ -1,12 +1,6 @@
 body{
   background: linear-gradient(rgba(255,99,71,0.1), rgba(255,99,71,0.3));
-}
-.form{
   height: 100vh;
-  width: 800px;
-  background-color: rgba(255,215,0,0.4);
-  margin: 0 auto;
-  padding-top: 100px;
 }
 
 h1{
@@ -53,21 +47,18 @@ h1{
   &-edit{
     height: 56px;
     width: 92px;
+    border-radius: 10px;
+
+    background-color: tomato;
     &__btn{
       height: 56px;
       width: 92px;
       border: 2px solid #000;
       border-radius: 10px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      -webkit-transition: all .3s;
-      transition: all .3s;
     }
-    .user-edit:hover {
-      -webkit-transform: translateY(-5px);
-      -ms-transform: translateY(-5px);
-      transform: translateY(-5px);
+    &__btn:hover {
+      opacity: 0.7;
+      border: 3px solid #000;
     }
   }
   &-contents{
