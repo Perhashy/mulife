@@ -1,24 +1,9 @@
-# README
+# MuLife
+『あなたの音楽ライフを豊に！』  
+このアプリは音楽家(主にバンド)のための交流サイトです。  
+いつでもどこでも誰とでも！遠い仲間と音楽活動ができるように  
+バンド探し,メンバー探しの手助けに
+というコンセプトのもと制作しました。
+# DEMO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 開発環境
