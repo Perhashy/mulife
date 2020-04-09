@@ -16,3 +16,7 @@
 * Ruby on Rails
 * haml
 * scss
+GEM
+* devise
+* carrierwave
+* audiojs-rails
