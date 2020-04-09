@@ -13,3 +13,6 @@
 # DEMO
 
 # 開発環境
+* Ruby on Rails
+* haml
+* scss
