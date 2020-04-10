@@ -20,3 +20,50 @@
 * audiojs-rails
 
 # DB設計
+## userテーブル
+|Column         |Type   |Options|
+|---------------|-------|-------|
+|nickname       |string |null: false|
+|email          |string |null: false, uniqe: true|
+|encrypted_password|string |null: false, uniqe: true|
+|part           |string ||
+|message        |text   ||
+|image          |string ||
+
+### Association
+has_many :contents
+has_many :comments, dependent: :destroy
+has_many :likes, dependent: :destroy
+has_many :like_contents, through: :likes
+
+
+## contentテーブル
+|title          |string |null: false|
+|music          |string |null: false|
+|message        |string ||
+|user_id        |integer|null: false, foreign_key: true|
+
+### Association
+belongs_to :user
+has_many   :comments, dependent: :destroy
+has_many   :likes, dependent: :destroy
+has_many   :liking_users, through: :likes
+
+
+## commentテーブル
+|text           |text   |null: false|
+|user_id        |integer|null: false, foreign_key: true|
+|content_id     |integer|null: false, foreign_key: true|
+
+### Association
+belongs_to :user
+belongs_to :content
+
+
+## likeテーブル
+|user_id        |integer|null: false, foreign_key: true|
+|content_id     |integer|null: false, foreign_key: true|
+
+### Association
+belongs_to :content
+belongs_to :user
