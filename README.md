@@ -39,3 +39,10 @@
 |user_id        |integer||
 
 ### Association
+
+## commentテーブル
+|text           |text||
+|user_id        |integer||
+|content_id     |integer||
+
+### Association
