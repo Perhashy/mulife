@@ -31,6 +31,11 @@
 |image          |string ||
 
 ### Association
+has_many :contents
+has_many :comments, dependent: :destroy
+has_many :likes, dependent: :destroy
+has_many :like_contents, through: :likes
+
 
 ## contentテーブル
 |title          |string ||
@@ -39,6 +44,11 @@
 |user_id        |integer||
 
 ### Association
+belongs_to :user
+has_many   :comments, dependent: :destroy
+has_many   :likes, dependent: :destroy
+has_many   :liking_users, through: :likes
+
 
 ## commentテーブル
 |text           |text||
