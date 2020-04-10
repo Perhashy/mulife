@@ -31,10 +31,10 @@
 |image          |string ||
 
 ### Association
-has_many :contents
-has_many :comments, dependent: :destroy
-has_many :likes, dependent: :destroy
-has_many :like_contents, through: :likes
+has_many :contents  
+has_many :comments, dependent: :destroy  
+has_many :likes, dependent: :destroy  
+has_many :like_contents, through: :likes  
 
 
 ## contentテーブル
@@ -46,10 +46,10 @@ has_many :like_contents, through: :likes
 |user_id        |integer|null: false, foreign_key: true|
 
 ### Association
-belongs_to :user
-has_many   :comments, dependent: :destroy
-has_many   :likes, dependent: :destroy
-has_many   :liking_users, through: :likes
+belongs_to :user  
+has_many   :comments, dependent: :destroy  
+has_many   :likes, dependent: :destroy  
+has_many   :liking_users, through: :likes  
 
 
 ## commentテーブル
@@ -60,8 +60,8 @@ has_many   :liking_users, through: :likes
 |content_id     |integer|null: false, foreign_key: true|
 
 ### Association
-belongs_to :user
-belongs_to :content
+belongs_to :user  
+belongs_to :content  
 
 
 ## likeテーブル
@@ -71,5 +71,5 @@ belongs_to :content
 |content_id     |integer|null: false, foreign_key: true|
 
 ### Association
-belongs_to :content
-belongs_to :user
+belongs_to :content  
+belongs_to :user  
