@@ -25,7 +25,7 @@
 |---------------|-------|-------|
 |nickname       |string |null: false|
 |email          |string |null: false, uniqe: true|
-|encrypted_password|string |null: false, uniqe: true, min: 7|
+|encrypted_password|string |null: false, uniqe: true|
 |part           |string ||
 |message        |text   ||
 |image          |string ||
@@ -38,10 +38,10 @@ has_many :like_contents, through: :likes
 
 
 ## contentテーブル
-|title          |string ||
-|music          |string ||
+|title          |string |null: false|
+|music          |string |null: false|
 |message        |string ||
-|user_id        |integer||
+|user_id        |integer|null: false, foreign_key: true|
 
 ### Association
 belongs_to :user
@@ -51,9 +51,9 @@ has_many   :liking_users, through: :likes
 
 
 ## commentテーブル
-|text           |text||
-|user_id        |integer||
-|content_id     |integer||
+|text           |text   |null: false|
+|user_id        |integer|null: false, foreign_key: true|
+|content_id     |integer|null: false, foreign_key: true|
 
 ### Association
 belongs_to :user
@@ -61,8 +61,8 @@ belongs_to :content
 
 
 ## likeテーブル
-|user_id        |integer||
-|content_id     |integer||
+|user_id        |integer|null: false, foreign_key: true|
+|content_id     |integer|null: false, foreign_key: true|
 
 ### Association
 belongs_to :content
