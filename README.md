@@ -20,3 +20,22 @@
 * audiojs-rails
 
 # DB設計
+## userテーブル
+|Column         |Type   |Options|
+|---------------|-------|-------|
+|nickname       |string |null: false|
+|email          |string |null: false, uniqe: true|
+|encrypted_password|string |null: false, uniqe: true, min: 7|
+|part           |string ||
+|message        |text   ||
+|image          |string ||
+
+### Association
+
+## contentテーブル
+|title          |string ||
+|music          |string ||
+|message        |string ||
+|user_id        |integer||
+
+### Association
