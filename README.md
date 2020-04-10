@@ -56,9 +56,14 @@ has_many   :liking_users, through: :likes
 |content_id     |integer||
 
 ### Association
+belongs_to :user
+belongs_to :content
+
 
 ## likeテーブル
 |user_id        |integer||
 |content_id     |integer||
 
 ### Association
+belongs_to :content
+belongs_to :user
