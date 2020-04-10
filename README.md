@@ -46,3 +46,9 @@
 |content_id     |integer||
 
 ### Association
+
+## likeテーブル
+|user_id        |integer||
+|content_id     |integer||
+
+### Association
