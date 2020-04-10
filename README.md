@@ -38,6 +38,8 @@ has_many :like_contents, through: :likes
 
 
 ## contentテーブル
+|Column         |Type   |Options|
+|---------------|-------|-------|
 |title          |string |null: false|
 |music          |string |null: false|
 |message        |string ||
@@ -51,6 +53,8 @@ has_many   :liking_users, through: :likes
 
 
 ## commentテーブル
+|Column         |Type   |Options|
+|---------------|-------|-------|
 |text           |text   |null: false|
 |user_id        |integer|null: false, foreign_key: true|
 |content_id     |integer|null: false, foreign_key: true|
@@ -61,6 +65,8 @@ belongs_to :content
 
 
 ## likeテーブル
+|Column         |Type   |Options|
+|---------------|-------|-------|
 |user_id        |integer|null: false, foreign_key: true|
 |content_id     |integer|null: false, foreign_key: true|
 
