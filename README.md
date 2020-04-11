@@ -18,6 +18,7 @@
 * devise
 * carrierwave
 * audiojs-rails
+* active_hash
 
 # DB設計
 ## userテーブル
@@ -26,7 +27,7 @@
 |nickname       |string |null: false|
 |email          |string |null: false, uniqe: true|
 |encrypted_password|string |null: false, uniqe: true|
-|part           |string ||
+|part_id        |integer|null: false|
 |message        |text   ||
 |image          |string ||
 
