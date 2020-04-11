@@ -1,4 +1,5 @@
 # MuLife
+![image](https://user-images.githubusercontent.com/61175442/79044776-1a59cd00-7c42-11ea-8f35-bf2d9e0a2f91.png)
 『あなたの音楽ライフを豊に！』  
 このアプリは音楽家（主にバンド）のための交流サイトです。  
 いつでもどこでも誰とでも！遠い仲間と音楽活動ができるように  
@@ -13,11 +14,12 @@
 # 開発環境
 * Ruby on Rails
 * haml
-* scss
-＜GEM＞
+* scss  
+＜GEM＞  
 * devise
 * carrierwave
 * audiojs-rails
+* active_hash
 
 # DB設計
 ## userテーブル
@@ -26,15 +28,15 @@
 |nickname       |string |null: false|
 |email          |string |null: false, uniqe: true|
 |encrypted_password|string |null: false, uniqe: true|
-|part           |string ||
+|part_id        |integer|null: false|
 |message        |text   ||
 |image          |string ||
 
 ### Association
-has_many :contents
-has_many :comments, dependent: :destroy
-has_many :likes, dependent: :destroy
-has_many :like_contents, through: :likes
+has_many :contents  
+has_many :comments, dependent: :destroy  
+has_many :likes, dependent: :destroy  
+has_many :like_contents, through: :likes  
 
 
 ## contentテーブル
@@ -46,10 +48,10 @@ has_many :like_contents, through: :likes
 |user_id        |integer|null: false, foreign_key: true|
 
 ### Association
-belongs_to :user
-has_many   :comments, dependent: :destroy
-has_many   :likes, dependent: :destroy
-has_many   :liking_users, through: :likes
+belongs_to :user  
+has_many   :comments, dependent: :destroy  
+has_many   :likes, dependent: :destroy  
+has_many   :liking_users, through: :likes  
 
 
 ## commentテーブル
@@ -60,8 +62,8 @@ has_many   :liking_users, through: :likes
 |content_id     |integer|null: false, foreign_key: true|
 
 ### Association
-belongs_to :user
-belongs_to :content
+belongs_to :user  
+belongs_to :content  
 
 
 ## likeテーブル
@@ -71,5 +73,5 @@ belongs_to :content
 |content_id     |integer|null: false, foreign_key: true|
 
 ### Association
-belongs_to :content
-belongs_to :user
+belongs_to :content  
+belongs_to :user  
