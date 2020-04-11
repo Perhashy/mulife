@@ -1,4 +1,5 @@
 # MuLife
+![image](https://user-images.githubusercontent.com/61175442/79044776-1a59cd00-7c42-11ea-8f35-bf2d9e0a2f91.png)
 『あなたの音楽ライフを豊に！』  
 このアプリは音楽家（主にバンド）のための交流サイトです。  
 いつでもどこでも誰とでも！遠い仲間と音楽活動ができるように  
@@ -13,8 +14,8 @@
 # 開発環境
 * Ruby on Rails
 * haml
-* scss
-＜GEM＞
+* scss  
+＜GEM＞  
 * devise
 * carrierwave
 * audiojs-rails
