@@ -1,11 +1,11 @@
 # MuLife
-![image](https://user-images.githubusercontent.com/61175442/79044776-1a59cd00-7c42-11ea-8f35-bf2d9e0a2f91.png)
+![image](https://user-images.githubusercontent.com/61175442/79044776-1a59cd00-7c42-11ea-8f35-bf2d9e0a2f91.png)  
 『あなたの音楽ライフを豊に！』  
 このアプリは音楽家（主にバンド）のための交流サイトです。  
 いつでもどこでも誰とでも！遠い仲間と音楽活動ができるように  
 バンド探し,メンバー探しの手助けに  
 というコンセプトのもと制作しました。  
-# デモ
+# 機能
 自分で作った音楽、歌、演奏などの音源をアップロードできます。  
 投稿に対してのコメント、いいね機能を用意しています。  
 今後、外部URLの投稿、楽器別検索機能、フォロー機能の実装を予定しています。  
@@ -14,7 +14,12 @@
 # 開発環境
 * Ruby on Rails
 * haml
-* scss  
+* scss
+* VSコード
+* mac
+* MySQL
+* GitHub  
+
 ＜GEM＞  
 * devise
 * carrierwave
