@@ -26,4 +26,11 @@
       = f.password_field :password_confirmation, autofocus: true, placeholder: "パスワード", autocomplete: "new-password", class: "field__input"
       = render partial: '/errors/error-messages', locals: {user: @user, column: "password_confirmation"}
 
+    .field
+      = f.label :担当楽器, class: "field__text"
+      %p.field__text-constraint 必須
+      = f.text_field :part_id, autofocus: true, placeholder: "ニックネーム", class: "field__input"
+      = render partial: '/errors/error-messages', locals: {user: @user, column: "part_id"}
+
+
     = f.submit "新規登録", class: "action"
