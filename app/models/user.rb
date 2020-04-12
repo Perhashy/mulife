@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_contents, through: :likes, source: :content
+  
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :part
 
   mount_uploader :image, ImageUploader
 end
