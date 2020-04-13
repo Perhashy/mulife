@@ -4,8 +4,10 @@ class ContentsController < ApplicationController
   def index
     if params[:option] == "A" || params[:option] == "B" || params[:option] == nil
       @contents = Content.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+      @select = "新着順"
     elsif params[:option] == "C"
       @contents = Content.includes(:user).order("created_at ASC").page(params[:page]).per(5)
+      @select = "投稿順"
     end
   end
 
