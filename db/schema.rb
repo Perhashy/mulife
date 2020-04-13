@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_03_11_062420) do
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "content_id"
-    t.text "text"
+    t.text "text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,9 +24,10 @@ ActiveRecord::Schema.define(version: 2020_03_11_062420) do
     t.string "title"
     t.string "music"
     t.string "message"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.index ["user_id"], name: "index_contents_on_user_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,12 +48,13 @@ ActiveRecord::Schema.define(version: 2020_03_11_062420) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname"
-    t.string "part"
-    t.text "message"
+    t.string "nickname", null: false
+    t.integer "part_id", null: false
+    t.string "message"
     t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contents", "users"
 end

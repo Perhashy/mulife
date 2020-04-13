@@ -4,6 +4,7 @@ class CreateContents < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :music
       t.string :message
+      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end
