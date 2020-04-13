@@ -9,4 +9,4 @@
     .content
       - @parts.each do |part|
         .part-link
-          = link_to part.name, "#", class: "part-link"
+          = link_to part.name, part_path(part.id), class: "part-link"

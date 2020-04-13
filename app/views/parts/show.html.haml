@@ -1,0 +1,13 @@
+= render "layouts/header"
+.wrapper
+  = render "layouts/side"
+  .main
+    .main-title
+      = image_tag "八分音符_2.png", class: "main-title-image"
+      %h1{class: "main-title__text"}= @part.name + "一覧"
+      = image_tag "八分音符_2.png", class: "main-title-image"
+
+    - @user.each do |user|
+      = image_tag "#{user.image}", size: "50x50"
+      = user.nickname
+      = user.message
