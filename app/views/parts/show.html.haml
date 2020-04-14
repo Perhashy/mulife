@@ -7,11 +7,17 @@
       %h1{class: "main-title__text"}= @part.name + "一覧"
       = image_tag "八分音符_2.png", class: "main-title-image"
 
-    - @user.each do |user|
-      .users
-        = link_to user_path(user.id), class: "users-link" do
-          .user-box
-            = image_tag "#{user.image}", class: "user-box-icn"
-            %p.user-box-name #{user.nickname}
-          .user-message
-            = user.message
+    - unless @user.present?
+      %p.not-user 検索したユーザーは存在しません
+    - else
+      - @user.each do |user|
+        .users
+          = link_to user_path(user.id), class: "users-link" do
+            .user-box
+              = image_tag "#{user.image}", class: "user-box-icn"
+              %p.user-box-name #{user.nickname}
+            .user-message
+              = user.message
+
+    .p-top__paginate
+      = paginate(@user)
