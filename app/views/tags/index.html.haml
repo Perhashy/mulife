@@ -14,4 +14,4 @@
       .tags
         - @tags.each do |tag|
           .tag
-            = link_to tag.name, tags_path(tag_name: tag.name), class: "tag-link"
+            = link_to "#{tag.name}(#{tag.count})", tags_path(tag_name: tag.name), class: "tag-link"
