@@ -6,7 +6,7 @@
       = image_tag "八分音符_2.png", class: "main-title-image"
       %h1{class: "main-title__text"} 楽器一覧
       = image_tag "八分音符_2.png", class: "main-title-image"
-    .content
+    .parts
       - @parts.each do |part|
-        .part-link
+        .part
           = link_to part.name, part_path(part.id), class: "part-link"
