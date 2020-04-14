@@ -55,7 +55,7 @@ class ContentsController < ApplicationController
 
   private
   def content_params
-    params.require(:content).permit(:title, :music, :message).merge(user_id: current_user.id)
+    params.require(:content).permit(:title, :music, :message, :tag_list).merge(user_id: current_user.id)
   end
 
   def set_content
