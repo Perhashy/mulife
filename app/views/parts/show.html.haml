@@ -8,6 +8,10 @@
       = image_tag "八分音符_2.png", class: "main-title-image"
 
     - @user.each do |user|
-      = image_tag "#{user.image}", size: "50x50"
-      = user.nickname
-      = user.message
+      .users
+        = link_to user_path(user.id), class: "users-link" do
+          .user-box
+            = image_tag "#{user.image}", class: "user-box-icn"
+            %p.user-box-name #{user.nickname}
+          .user-message
+            = user.message

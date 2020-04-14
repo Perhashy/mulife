@@ -1,0 +1,34 @@
+.users{
+  padding: 20px;
+  border-top: 1px solid;
+  border-color: rgba(255,99,71,0.7);
+  &-link{
+    display: block;
+    text-decoration: none;
+    .user-box{
+      height: 50px;
+      &-icn{
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+        background-color: gray;
+        border-radius: 50%;
+        border: 1px solid #000;
+      }
+      &-name{
+        display: inline;
+        font-size: 26px;
+        color: #000;
+        margin-left: 15px;
+      }
+    }
+    .user-message{
+      font-size: 20px;
+      color: #000;
+      padding: 10px 0px 0px 16px;
+    }
+    &:hover{
+      opacity: 0.7;
+    }
+  }
+}
