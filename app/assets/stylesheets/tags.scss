@@ -21,3 +21,13 @@
     }
   }
 }
+
+.content-tag{
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+  &:hover{
+    font-weight: bold;
+    color: tomato;
+  }
+}
