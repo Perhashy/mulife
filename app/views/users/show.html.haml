@@ -6,7 +6,7 @@
       = image_tag "MuLife 300×100.png", size: "300x100", class: "header-image"
       .header-user
         = link_to image_tag("投稿.png"), new_content_path, class: "header-user__btn"
-        = link_to image_tag("ログアウト2.png"), destroy_user_session_path, method: :delete, class: "header-user__btn"
+        = link_to image_tag("/ログアウト2.png"), destroy_user_session_path, method: :delete, class: "header-user__btn"
 .wrapper
   = render "layouts/side"
   .main
