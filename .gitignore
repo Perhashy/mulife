@@ -30,3 +30,4 @@
 /app/assets/.DS_Store
 /public/uploads
 /config/secrets.yml
+/config/credentials.yml.enc
