@@ -38,6 +38,7 @@
           = audio_tag content.music, class: "content-music__box"
         .content-text
           = simple_format(content.message)
+        = render 'contents/tag_list', tag_list: content.tag_list
         .content-menu
           .content-menu__good
             いいね

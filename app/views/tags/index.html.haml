@@ -1,0 +1,17 @@
+= render "layouts/header"
+.wrapper
+  = render "layouts/side"
+  .main
+    .main-title
+      = image_tag "八分音符_2.png", class: "main-title-image"
+      %h1{class: "main-title__text"} タグ：#{params[:tag_name]}一覧
+      = image_tag "八分音符_2.png", class: "main-title-image"
+    - if @contents.present?
+      = render "contents/content"
+      .p-top__paginate
+        = paginate(@contents)
+    - else
+      .tags
+        - @tags.each do |tag|
+          .tag
+            = link_to "#{tag.name}(#{tag.count})", tags_path(tag_name: tag.name), class: "tag-link"
