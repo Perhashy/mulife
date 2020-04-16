@@ -71,7 +71,7 @@ class ContentsController < ApplicationController
   end
 
   def only_current_user
-    unless current_user.id == @product.user.id
+    unless current_user.id == @content.user.id
       redirect_to root_path
     end
   end
