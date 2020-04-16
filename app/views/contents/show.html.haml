@@ -8,8 +8,11 @@
       = image_tag "八分音符.png", size: "54x54"
     .content
       .content-user
-        %a{href: user_path(@content.user_id), class: "content-user__image"}
-          = image_tag "#{@content.user.image}", class: "content-user__image-btn"
+        -if @content.user.image.present?
+          = link_to user_path(@content.user_id), class: "content-user__image" do
+            = image_tag "#{@content.user.image}", class: "content-user__image-btn"
+        - else
+          = link_to @content.user.nickname[0], user_path(@content.user_id), class: "content-user__image-btn"
         = link_to @content.user.nickname, user_path(@content.user_id), class: "content-user__name"
         .content-user__time
           = @content.created_at.strftime('%Y/%m/%d %H:%M')
