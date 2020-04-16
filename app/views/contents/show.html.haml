@@ -36,9 +36,10 @@
         - else
           .content-menu__nil
             ※いいね、コメントをするにはログインまたはユーザー登録してください※
-      = form_with(model: [@content, @comment], local: true, class: "comment-form", id: "new_comment") do |f|
-        = f.text_area :text, placeholder: "コメントする", rows: "2", class: "comment-input"
-        = f.submit "コメントする", class: "comment-submit"
+      - if user_signed_in?
+        = form_with(model: [@content, @comment], local: true, class: "comment-form", id: "new_comment") do |f|
+          = f.text_area :text, placeholder: "コメントする", rows: "2", class: "comment-input"
+          = f.submit "コメントする", class: "comment-submit"
       .comment-list
         ＜コメント一覧＞
       - if @comments
