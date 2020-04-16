@@ -12,7 +12,11 @@
   .main
     .user
       .user-box
-        = image_tag "#{@user.image}", class: "user-box__image"
+        - if @user.image.present?
+          = image_tag "#{@user.image}", class: "user-box__image"
+        - else
+          .user-box__image
+            = @user.nickname[0]
         .user-box__name
           = @user.nickname
         .user-box__part

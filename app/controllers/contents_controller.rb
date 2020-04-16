@@ -1,5 +1,7 @@
 class ContentsController < ApplicationController
+  before_action :only_signed_in_user, except: [:index, :show]
   before_action :set_content, only: [:show, :edit, :update, :destroy]
+  before_action :only_current_user, only: [:edit, :update, :destroy]
 
   def index
     if params[:option] == "A" || params[:option] == "B" || params[:option] == nil
@@ -61,4 +63,17 @@ class ContentsController < ApplicationController
   def set_content
     @content = Content.find(params[:id])
   end
+
+  def only_signed_in_user
+    unless user_signed_in?
+      redirect_to new_user_registration_path
+    end
+  end
+
+  def only_current_user
+    unless current_user.id == @product.user.id
+      redirect_to root_path
+    end
+  end
+
 end

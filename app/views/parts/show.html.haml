@@ -14,7 +14,11 @@
         .users
           = link_to user_path(user.id), class: "users-link" do
             .user-box
-              = image_tag "#{user.image}", class: "user-box-icn"
+              - if user.image.present?
+                = image_tag "#{user.image}", class: "user-box-icn"
+              - else
+                .user-box-icn
+                  = user.nickname[0]
               %p.user-box-name #{user.nickname}
             .user-message
               = user.message

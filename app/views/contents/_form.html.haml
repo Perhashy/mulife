@@ -19,4 +19,5 @@
     = f.label :タグ, class: "field__text"
     = f.text_field :tag_list, value: @content.tag_list.join(','), class: "field__input"
 
+  ※アップロードに時間がかかる場合があります
   = f.submit "#{@submit}", class: "action"

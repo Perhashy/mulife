@@ -4,7 +4,10 @@
   - if user_signed_in?
     .header-user
       = link_to image_tag("投稿.png"), new_content_path, class: "header-user__btn"
-      = link_to image_tag("#{current_user.image}"), user_path(current_user), class: "header-user__image"
+      - if current_user.image.present?
+        = link_to image_tag("#{current_user.image}"), user_path(current_user), class: "header-user__image"
+      - else
+        = link_to current_user.nickname[0], user_path(current_user), class: "header-user__name"
   - else
     .header-user
       = link_to image_tag("登録.png"), new_user_registration_path, class: "header-user__btn"
