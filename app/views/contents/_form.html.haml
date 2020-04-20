@@ -14,4 +14,10 @@
   .field
     = f.label :メッセージ, class: "field__text"
     = f.text_area :message, rows: "5", wrap: "hard", placeholder:"メッセージ", class: "field__input"
+
+  .field
+    = f.label :タグ, class: "field__text"
+    = f.text_field :tag_list, value: @content.tag_list.join(','), class: "field__input"
+
+  ※アップロードに時間がかかる場合があります
   = f.submit "#{@submit}", class: "action"

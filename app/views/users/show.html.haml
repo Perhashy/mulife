@@ -6,18 +6,22 @@
       = image_tag "MuLife 300×100.png", size: "300x100", class: "header-image"
       .header-user
         = link_to image_tag("投稿.png"), new_content_path, class: "header-user__btn"
-        = link_to image_tag("ログアウト.png"), destroy_user_session_path, method: :delete, class: "header-user__btn"
+        = link_to image_tag("MuLife_signout.png"), destroy_user_session_path, method: :delete, class: "header-user__btn"
 .wrapper
   = render "layouts/side"
   .main
     .user
       .user-box
-        = image_tag "#{@user.image}", class: "user-box__image"
+        - if @user.image.present?
+          = image_tag "#{@user.image}", class: "user-box__image"
+        - else
+          .user-box__image
+            = @user.nickname[0]
         .user-box__name
           = @user.nickname
         .user-box__part
           担当楽器：
-          = @user.part
+          = @user.part.name
         .user-box__message
           %h4{class: "user-box__message-text"} 自己紹介
           = @user.message
@@ -38,6 +42,7 @@
           = audio_tag content.music, class: "content-music__box"
         .content-text
           = simple_format(content.message)
+        = render 'contents/tag_list', tag_list: content.tag_list
         .content-menu
           .content-menu__good
             いいね

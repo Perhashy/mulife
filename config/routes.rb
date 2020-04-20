@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   post   '/like/:content_id' => 'likes#like',   as: 'like'
   delete '/like/:content_id' => 'likes#unlike', as: 'unlike'
   resources :likes, only: :index
+  resources :parts, only: [:index, :show]
+  resources :tags, only: :index
 end

@@ -28,3 +28,6 @@
 /.DS_Store
 /app/.DS_Store
 /app/assets/.DS_Store
+/public/uploads
+/config/secrets.yml
+/app/assets/images/.DS_Store

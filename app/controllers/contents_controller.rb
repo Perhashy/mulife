@@ -1,11 +1,15 @@
 class ContentsController < ApplicationController
+  before_action :only_signed_in_user, except: [:index, :show]
   before_action :set_content, only: [:show, :edit, :update, :destroy]
+  before_action :only_current_user, only: [:edit, :update, :destroy]
 
   def index
     if params[:option] == "A" || params[:option] == "B" || params[:option] == nil
       @contents = Content.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+      @select = "新着順"
     elsif params[:option] == "C"
       @contents = Content.includes(:user).order("created_at ASC").page(params[:page]).per(5)
+      @select = "投稿順"
     end
   end
 
@@ -53,10 +57,23 @@ class ContentsController < ApplicationController
 
   private
   def content_params
-    params.require(:content).permit(:title, :music, :message).merge(user_id: current_user.id)
+    params.require(:content).permit(:title, :music, :message, :tag_list).merge(user_id: current_user.id)
   end
 
   def set_content
     @content = Content.find(params[:id])
   end
+
+  def only_signed_in_user
+    unless user_signed_in?
+      redirect_to new_user_registration_path
+    end
+  end
+
+  def only_current_user
+    unless current_user.id == @content.user.id
+      redirect_to root_path
+    end
+  end
+
 end

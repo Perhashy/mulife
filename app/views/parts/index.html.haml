@@ -4,8 +4,9 @@
   .main
     .main-title
       = image_tag "八分音符_2.png", class: "main-title-image"
-      %h1{class: "main-title__text"} "#{@keyword}"の検索結果
+      %h1{class: "main-title__text"} 楽器一覧
       = image_tag "八分音符_2.png", class: "main-title-image"
-
-    = render "contents/content"
-    = paginate(@contents)
+    .parts
+      - @parts.each do |part|
+        .part
+          = link_to part.name, part_path(part.id), class: "part-link"
